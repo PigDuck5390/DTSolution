@@ -170,3 +170,15 @@ http://localhost:8080/login
 6. 성공 → 세션 생성, LoginLog 기록, /home 리다이렉트
    실패 → 실패 횟수 증가, 5회 초과 시 계정 잠금, /login?error 리다이렉트
 ```
+
+## UI
+
+**로그인**
+<img width="1920" height="950" alt="1_login" src="https://github.com/user-attachments/assets/f6f33f9f-2cc0-447a-a4e0-2e608227aef4" />
+
+**회원가입**
+<img width="1903" height="948" alt="2_signup" src="https://github.com/user-attachments/assets/191bf155-7e65-4899-b073-6574c0af93d7" />
+
+
+**홈화면**
+<img width="1920" height="946" alt="3_home" src="https://github.com/user-attachments/assets/1e04597a-54f9-4cb6-8899-63fc8c01c534" />
