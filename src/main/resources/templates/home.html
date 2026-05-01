@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTSolution | 홈</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link th:href="@{/css/common.css}" rel="stylesheet">
+    <link th:href="@{/css/home.css}" rel="stylesheet">
+</head>
+<body class="home-body">
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="bi bi-buildings-fill me-2"></i>DTSolution
+        </a>
+        <div class="d-flex align-items-center gap-3">
+            <span class="nav-user">
+                <i class="bi bi-person-badge me-1"></i>
+                <span th:text="${empNo}">사번</span>
+            </span>
+            <form th:action="@{/logout}" method="post" class="d-inline">
+                <button type="submit" class="btn btn-logout">
+                    <i class="bi bi-box-arrow-right me-1"></i>로그아웃
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container main-content">
+
+    <div class="welcome-card">
+        <h2>안녕하세요, <span th:text="${empNo}">사번</span>님</h2>
+        <p>DTSolution 프로젝트 관리 플랫폼에 로그인되었습니다.</p>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="info-card">
+                <h6><i class="bi bi-shield-check me-1"></i>적용된 보안 요소</h6>
+
+                <div class="security-item">
+                    <div class="icon-wrap" style="background:#e6f4ea;">
+                        <i class="bi bi-lock-fill text-success"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:600;">BCrypt 비밀번호 암호화</div>
+                        <div style="font-size:0.8rem;color:#a0aec0;">Salt 자동 적용 · Rainbow Table 방어</div>
+                    </div>
+                    <span class="badge-active ms-auto">활성</span>
+                </div>
+
+                <div class="security-item">
+                    <div class="icon-wrap" style="background:#e8f4fd;">
+                        <i class="bi bi-shield-exclamation text-primary"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:600;">CSRF 토큰 보호</div>
+                        <div style="font-size:0.8rem;color:#a0aec0;">모든 POST 요청 토큰 검증</div>
+                    </div>
+                    <span class="badge-active ms-auto">활성</span>
+                </div>
+
+                <div class="security-item">
+                    <div class="icon-wrap" style="background:#fff3e0;">
+                        <i class="bi bi-clock-history" style="color:#e8a020;"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:600;">Brute-force 방어</div>
+                        <div style="font-size:0.8rem;color:#a0aec0;">5회 실패 시 30분 계정 잠금</div>
+                    </div>
+                    <span class="badge-active ms-auto">활성</span>
+                </div>
+
+                <div class="security-item">
+                    <div class="icon-wrap" style="background:#f3e8ff;">
+                        <i class="bi bi-person-x-fill" style="color:#805ad5;"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:600;">중복 로그인 방지</div>
+                        <div style="font-size:0.8rem;color:#a0aec0;">동일 계정 동시 세션 1개 제한</div>
+                    </div>
+                    <span class="badge-active ms-auto">활성</span>
+                </div>
+
+                <div class="security-item">
+                    <div class="icon-wrap" style="background:#e8f4fd;">
+                        <i class="bi bi-journal-text text-primary"></i>
+                    </div>
+                    <div>
+                        <div style="font-weight:600;">로그인 이력 기록</div>
+                        <div style="font-size:0.8rem;color:#a0aec0;">IP · 시각 · 성공여부 DB 저장</div>
+                    </div>
+                    <span class="badge-active ms-auto">활성</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="info-card">
+                <h6><i class="bi bi-diagram-3 me-1"></i>DB 설계 구조</h6>
+
+                <div class="db-card">
+                    <div class="db-card-title">📋 USERS (인증 전용)</div>
+                    <div class="db-card-content">
+                        id · emp_no · password<br>
+                        name · email · role<br>
+                        enabled · fail_count · locked_until
+                    </div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-card-title">📋 USER_PROFILE (HR 연동 대비)</div>
+                    <div class="db-card-content">
+                        emp_no · dept · position · phone
+                    </div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-card-title">📋 USER_PROJECT (추후 확장)</div>
+                    <div class="db-card-content">
+                        emp_no · project_code · assigned_at
+                    </div>
+                </div>
+
+                <div class="db-card">
+                    <div class="db-card-title">📋 LOGIN_LOG (보안 감사)</div>
+                    <div class="db-card-content">
+                        emp_no · login_at · logout_at<br>
+                        ip_address · success · reason
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

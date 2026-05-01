@@ -1,0 +1,91 @@
+/* =============================================
+   인증 페이지 전용 (로그인 / 회원가입)
+   ============================================= */
+
+/* 배경 */
+.auth-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2d5a 0%, #1a4b8c 60%, #2563b0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 480px;
+}
+
+/* 브랜드 로고 */
+.brand-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.brand-logo .logo-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--accent);
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+
+.brand-logo h1 {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.brand-logo p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* 카드 */
+.auth-card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+}
+
+.auth-card .card-body {
+    padding: 2.5rem;
+}
+
+.auth-card .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.auth-card .card-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* 비밀번호 강도 바 */
+.strength-bar {
+    height: 4px;
+    border-radius: 2px;
+    margin-top: 6px;
+    transition: all 0.3s;
+}
+
+/* 보안 배지 */
+.security-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin-top: 1.5rem;
+}

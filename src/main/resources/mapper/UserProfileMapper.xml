@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dtsolution.auth.mapper.UserProfileMapper">
+
+    <resultMap id="profileResultMap" type="UserProfile">
+        <id     property="empNo"     column="emp_no"/>
+        <result property="dept"      column="dept"/>
+        <result property="position"  column="position"/>
+        <result property="phone"     column="phone"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+    <insert id="insertEmptyProfile">
+        INSERT INTO user_profile (emp_no, updated_at)
+        VALUES (#{empNo}, SYSDATE)
+    </insert>
+
+    <select id="findByEmpNo" resultMap="profileResultMap">
+        SELECT emp_no, dept, position, phone, updated_at
+        FROM   user_profile
+        WHERE  emp_no = #{empNo}
+    </select>
+
+</mapper>
