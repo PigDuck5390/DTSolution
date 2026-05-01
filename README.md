@@ -182,3 +182,6 @@ http://localhost:8080/login
 
 **홈화면**
 <img width="1920" height="946" alt="3_home" src="https://github.com/user-attachments/assets/1e04597a-54f9-4cb6-8899-63fc8c01c534" />
+
+## ERD
+<img width="610" height="458" alt="ERD" src="https://github.com/user-attachments/assets/e00ccf34-a260-49f1-bd82-c8d1a8ee34d2" />
